@@ -1,6 +1,6 @@
 <?php
 Route::get('/', function() {
-    return view ('index');
+    return "true";
 });
 Route::get('/product', function() {
     return view ('product');
