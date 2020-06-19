@@ -1,7 +1,11 @@
 <?php
 Route::get('/', function() {
-    return redirect(route('admin.dashboard'));
+    return view ('index');
 });
+Route::get('/product', function() {
+    return view ('product');
+});
+
 
 Route::get('home', function() {
     return redirect(route('admin.dashboard'));
