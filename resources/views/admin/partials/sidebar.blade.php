@@ -15,7 +15,7 @@
       @endif
 
       <li class="menu-header">Master Data</li>
-      <li class="{{ Request::route()->getName() == 'admin.index.category' ? ' active' : '' }}"><a class="nav-link" href="{{ route('admin.index.category') }}"><i class="fa fa-columns"></i> <span>Category</span></a></li>
+      <li class="{{ Request::route()->getName() == 'admin.add.category' || Request::route()->getName() == 'admin.index.category' ? ' active' : '' }}"><a class="nav-link" href="{{ route('admin.index.category') }}"><i class="fa fa-columns"></i> <span>Category</span></a></li>
       <li class="{{ Request::route()->getName() == 'admin.index.product' ? ' active' : '' }}"><a class="nav-link" href="{{ route('admin.index.product') }}"><i class="fa fa-columns"></i> <span>Product</span></a></li>
 
     </ul>

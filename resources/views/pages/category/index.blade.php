@@ -4,12 +4,17 @@
 Category
 @endsection
 
+@section('css')
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="{{ asset('assets/modules/chocolat/dist/css/chocolat.css') }}">
+@endsection
+
 @section('content')
 <section class="section">
     <div class="section-header">
       <h1>Category</h1>
       <div class="section-header-button">
-        <a href="features-post-create.html" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+        <a href="{{ route('admin.add.category') }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
       </div>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="#">Category</a></div>
@@ -55,8 +60,12 @@ Category
                     @foreach ($data as $row)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $row->name }}<td>
-                            <td>{{ $row->foto }}</td>
+                            <td>{{ $row->name }}</td>
+                            <td>
+                                <div class="gallery">
+                                    <div class="gallery-item" data-image="{{ asset('assets/images/category/'.$row->foto)}}" title="{{ $row->foto }}" href="{{ asset('assets/images/category/'.$row->foto )}}"></div>
+                                  </div>
+                            </td>
                             <td>{{ $row->created_at }}</td>
                             <td>
                                 <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
@@ -79,4 +88,9 @@ Category
       </div>
     </div>
   </section>
+@endsection
+
+@section('scripts')
+  <!-- JS Libraies -->
+  <script src="{{ asset('assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
 @endsection

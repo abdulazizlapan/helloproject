@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.category.add');
     }
 
     /**
@@ -36,7 +36,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('image_category');
+        $extension = $file->getClientOriginalExtension(); // getting image extension
+        $filename = time().'.'.$extension;
+        $file->move('assets/images/category/', $filename);
+
+        Category::Create([
+            'name' => $request->category_name,
+            'foto' => $filename
+        ]);
+        return redirect(route('admin.index.category'));
     }
 
     /**
