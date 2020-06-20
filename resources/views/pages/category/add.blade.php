@@ -8,12 +8,11 @@ Add Category
 <section class="section">
     <div class="section-header">
       <div class="section-header-back">
-        <a href="features-Categorys.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+        <a href="{{ route('admin.index.category') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
       <h1>Create New Category</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="#">Categorys</a></div>
+        <div class="breadcrumb-item active"><a href="#">Category</a></div>
         <div class="breadcrumb-item">Create New Category</div>
       </div>
     </div>
