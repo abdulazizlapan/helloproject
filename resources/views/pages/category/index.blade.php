@@ -24,7 +24,7 @@ Category
     <div class="section-body">
       <h2 class="section-title">Category</h2>
       <p class="section-lead">
-        You can manage all CAtegory, such as editing, deleting and more.
+        You can manage all Category, such as editing, deleting and more.
       </p>
       <div class="row mt-4">
         <div class="col-12">
