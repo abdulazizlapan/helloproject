@@ -1,31 +1,31 @@
 @extends('layouts.admin-master')
 
 @section('title')
-Category
+Product
 @endsection
 
 @section('content')
 <section class="section">
     <div class="section-header">
-      <h1>Category</h1>
+      <h1>Product</h1>
       <div class="section-header-button">
         <a href="features-post-create.html" class="btn btn-primary"><i class="fa fa-plus"></i></a>
       </div>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="#">Category</a></div>
-        <div class="breadcrumb-item">All Category</div>
+        <div class="breadcrumb-item active"><a href="#">Product</a></div>
+        <div class="breadcrumb-item">All Product</div>
       </div>
     </div>
     <div class="section-body">
-      <h2 class="section-title">Category</h2>
+      <h2 class="section-title">Product</h2>
       <p class="section-lead">
-        You can manage all CAtegory, such as editing, deleting and more.
+        You can manage all Product, such as editing, deleting and more.
       </p>
       <div class="row mt-4">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>All Category</h4>
+              <h4>All Product</h4>
             </div>
             <div class="card-body">
               <div class="float-left"></div>
@@ -47,17 +47,21 @@ Category
                   <tbody>
                       <tr>
                         <th>No</th>
+                        <th>Nama Product</th>
                         <th>Category</th>
+                        <th>Descrition</th>
                         <th>Images</th>
-                        <th>Created At</th>
+                        <th>Price</th>
                         <th>Action</th>
                     </tr>
                     @foreach ($data as $row)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $row->name }}<td>
-                            <td>{{ $row->foto }}</td>
-                            <td>{{ $row->created_at }}</td>
+                            <td>{{ $row->name }}</td>
+                            <td>{{ $row->category }}</td>
+                            <td>{{ $row->description }}</td>
+                            <td>{{ $row->images }}</td>
+                            <td>{{ $row->price }}</td>
                             <td>
                                 <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 <a href="" class="btn btn-warning"><i class="fa fa-edit"></i></a>
