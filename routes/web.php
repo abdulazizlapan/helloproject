@@ -20,6 +20,8 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
             'index' => 'users'
         ]
     ]);
+
+    Route::get('category/index', 'CategoryController@index')->name('index.category');
 });
 
 Route::middleware('auth')->get('logout', function() {
