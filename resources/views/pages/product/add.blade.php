@@ -38,15 +38,20 @@ Add Product
                         <input type="text" name="Product_name" class="form-control">
                       </div>
                     </div>
-                    {{-- <div class="form-group row mb-4">
+                    <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
                       <select class="col-sm-12 col-md-7">
                         <option>Option 1</option>
                         <option>Option 2</option>
                         <option>Option 3</option>
                       </select>
-                    </div> --}}
-                    
+                    </div>
+                    <div class="form-group row mb-8">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Content</label>
+                      <div class="col-sm-12 col-md-7">
+                        <textarea class="summernote-simple"></textarea>
+                      </div>
+                    </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Foto</label>
                       <div class="col-sm-12 col-md-7">

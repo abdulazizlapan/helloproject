@@ -22,20 +22,21 @@ Edit Category
       <p class="section-lead">
         On this page you can EDIT a  Category and fill in all fields.
       </p>
-
+      
       <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
               <h4>Write Your Category</h4>
             </div>
-            <form action="{{ Route('admin.store.category') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ Route('admin.update.category') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="id" value="{{$data->id}}">
                 <div class="card-body">
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category Name</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" name="category_name" class="form-control">
+                      <input type="text" name="category_name"  class="form-control" value="{{ $data->name }}">
                       </div>
                     </div>
                     <div class="form-group row mb-4">
@@ -43,7 +44,7 @@ Edit Category
                       <div class="col-sm-12 col-md-7">
                         <div id="image-preview" class="image-preview">
                           <label for="image-upload" id="image-label">Choose File</label>
-                          <input type="file" name="image_category" id="image-upload">
+                          <input type="file" name="image_category"  id="image-upload">
                         </div>
                       </div>
                     </div>
@@ -56,7 +57,6 @@ Edit Category
                   </div>
 
             </form>
-
 
           </div>
         </div>
