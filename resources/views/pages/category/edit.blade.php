@@ -1,7 +1,7 @@
 @extends('layouts.admin-master')
 
 @section('title')
-Add Category
+Edit Category
 @endsection
 
 @section('content')
@@ -10,17 +10,17 @@ Add Category
       <div class="section-header-back">
         <a href="{{ route('admin.index.category') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
       </div>
-      <h1>Create New Category</h1>
+      <h1>Edit Category</h1>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="#">Category</a></div>
-        <div class="breadcrumb-item">Create New Category</div>
+        <div class="breadcrumb-item">Edit Category</div>
       </div>
     </div>
 
     <div class="section-body">
-      <h2 class="section-title">Create New Category</h2>
+      <h2 class="section-title">Edit Category</h2>
       <p class="section-lead">
-        On this page you can create a new Category and fill in all fields.
+        On this page you can EDIT a  Category and fill in all fields.
       </p>
 
       <div class="row">
@@ -50,7 +50,7 @@ Add Category
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
-                        <button class="btn btn-primary" type="submit">Create Category</button>
+                        <button class="btn btn-primary" type="submit">Update  Category</button>
                       </div>
                     </div>
                   </div>

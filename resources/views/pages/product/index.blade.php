@@ -4,12 +4,17 @@
 Product
 @endsection
 
+@section('css')
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="{{ asset('assets/modules/chocolat/dist/css/chocolat.css') }}">
+@endsection
+
 @section('content')
 <section class="section">
     <div class="section-header">
       <h1>Product</h1>
       <div class="section-header-button">
-        <a href="features-post-create.html" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+        <a href="{{ route('admin.add.product') }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
       </div>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="#">Product</a></div>
@@ -47,7 +52,7 @@ Product
                   <tbody>
                       <tr>
                         <th>No</th>
-                        <th>Nama Product</th>
+                        <th>Name Product</th>
                         <th>Category</th>
                         <th>Descrition</th>
                         <th>Images</th>
@@ -64,7 +69,7 @@ Product
                             <td>{{ $row->price }}</td>
                             <td>
                                 <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                <a href="" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                <a href="{{ route('admin.edit.product') }}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -83,4 +88,9 @@ Product
       </div>
     </div>
   </section>
+@endsection
+
+@section('scripts')
+  <!-- JS Libraies -->
+  <script src="{{ asset('assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
 @endsection
