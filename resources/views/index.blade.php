@@ -88,16 +88,10 @@
         </div>
         <div class="ps-panel__content">
             <ul class="menu--mobile">
-                <li class="current-menu-item "><a href="#">Hot Promotions</a>
-                </li>
-                <li class="current-menu-item "><a href="#">Clothing &amp; Apparel</a>
-                </li>
-                <li class="current-menu-item "><a href="#">Home, Garden &amp; Kitchen</a>
-                </li>
-                <li class="current-menu-item "><a href="#">Health &amp; Beauty</a>
-                </li>
-                <li class="current-menu-item "><a href="#">Yewelry &amp; Watches</a>
-                </li>
+                @foreach ($dataCategory as $rowCategory)
+                    <li class="current-menu-item "><a href="#">{{ $rowCategory->name }}</a>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>
@@ -196,9 +190,9 @@
     <br>
         <div>
             <div>
-                <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" 
-                data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" 
-                data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" 
+                <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true"
+                data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1"
+                data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1"
                 data-owl-duration="1000" data-owl-mousedrag="on">
                      <div class="ps-banner"><a href="#"><img  src="{{ asset('assets/data/img/slider/home-1/x.jpg')}}" alt=""></a></div>
                      <div class="ps-banner"><a href="#"><img  src="{{ asset('assets/data/img/slider/home-1/1.jpg')}}" alt=""></a></div>
@@ -229,68 +223,21 @@
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
              </div>
-         </div>  
+         </div>
 
         <div class="ps-top-categories">
             <div class="ps-container">
                 <h3>Kategori</h3>
                 <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 col-12 ">
-                        <div class="ps-block--category">
-                            <a class="ps-block__overlay" href="product.html"></a>
-                            <img src="{{ asset('assets/data/img/categories/1.jpg')}}" alt="">
-                            <p>Electronics</p>
+                    @foreach ($dataCategory as $row)
+                        <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 col-12 ">
+                            <div class="ps-block--category">
+                                <a class="ps-block__overlay" href="product.html"></a>
+                                <img src="{{ asset('assets/images/category/'.$row->foto)}}" alt="">
+                                <p>{{ $row->name }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 col-12 ">
-                        <div class="ps-block--category">
-                            <a class="ps-block__overlay" href="product.html"></a>
-                            <img src="{{ asset('assets/data/img/categories/2.jpg')}}" alt="">
-                            <p>Clothings</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 col-12 ">
-                        <div class="ps-block--category">
-                            <a class="ps-block__overlay" href="product.html"></a>
-                            <img src="{{ asset('assets/data/img/categories/3.jpg')}}" alt="">
-                            <p>Computers</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 col-12 ">
-                        <div class="ps-block--category">
-                            <a class="ps-block__overlay" href="product.html"></a>
-                            <img src="{{ asset('assets/data/img/categories/4.jpg')}}" alt="">
-                            <p>Home & Kitchen</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 col-12 ">
-                        <div class="ps-block--category">
-                            <a class="ps-block__overlay" href="product.html"></a>
-                            <img src="{{ asset('assets/data/img/categories/5.jpg')}}" alt="">
-                            <p>Health & Beauty</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 col-12 ">
-                        <div class="ps-block--category">
-                            <a class="ps-block__overlay" href="product.html"></a>
-                            <img src="{{ asset('assets/data/img/categories/6.jpg')}}" alt="">
-                            <p>Health & Beauty</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 col-12 ">
-                        <div class="ps-block--category">
-                            <a class="ps-block__overlay" href="product.html"></a>
-                            <img src="{{ asset('assets/data/img/categories/7.jpg')}}" alt="">
-                            <p>Jewelry & Watch</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 col-12 ">
-                        <div class="ps-block--category">
-                            <a class="ps-block__overlay" href="product.html"></a>
-                            <img src="{{ asset('assets/data/img/categories/8.jpg')}}" alt="">
-                            <p>Technology Toys</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <?php
-Route::get('/', function() {
-    return view ('index');
-});
+
+Route::get('/', 'FrontEndController@index')->name('index.home');
+
 Route::get('/product', function() {
     return view ('product');
 });
@@ -21,9 +21,13 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
         ]
     ]);
 
+    // Category
     Route::get('category/index', 'CategoryController@index')->name('index.category');
     Route::get('category/add', 'CategoryController@create')->name('add.category');
     Route::post('category/store', 'CategoryController@store')->name('store.category');
+    Route::get('category/edit', 'CategoryController@edit')->name('edit.category');
+
+    // product
     Route::get('product/index', 'ProductController@index')->name('index.product');
 });
 
