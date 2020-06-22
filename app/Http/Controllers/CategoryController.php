@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\File;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -65,9 +65,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $data =  Category::where('id', $id)->first();
+        return view('pages.category.edit', compact('data'));
     }
 
     /**
@@ -77,9 +78,23 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request)
     {
-        //
+        // dd($request->all());
+        $data =  Category::where('id', $request->id)->first();
+
+        if (isset($request->image_category)) {
+
+            $file = $request->file('image_category');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time().'.'.$extension;
+            $file->move('assets/images/category/', $filename);
+            $data->foto = $filename;
+        }
+        $data->name = $request->category_name;
+        $data->save();
+        return redirect(route('admin.index.category'));
+
     }
 
     /**
@@ -88,8 +103,14 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $data = Category::find($id);
+        $image_path = $image_path = public_path().'/assets/images/category/'.$data->foto;
+        if (File::exists($image_path)) {
+            unlink($image_path);
+        }
+        $data->delete();
+        return redirect(route('admin.index.category'));
     }
 }

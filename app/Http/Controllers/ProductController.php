@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.product.add');
     }
 
     /**
@@ -36,7 +36,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('image_product');
+        $extension = $file->getClientOriginalExtension(); // getting image extension
+        $filename = time().'.'.$extension;
+        $file->move('assets/images/product/', $filename);
+
+        product::Create([
+            'name' => $request->product_name,
+            // 'category_id' => $request->category,
+            // 'description' => $request->description,
+            'image' => $filename,
+            'price' => $request->price,
+        ]);
+        return redirect(route('admin.index.product'));
     }
 
     /**

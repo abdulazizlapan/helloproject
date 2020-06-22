@@ -68,8 +68,8 @@ Category
                             </td>
                             <td>{{ $row->created_at }}</td>
                             <td>
-                                <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                <a href="" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                            <a href="{{ Route('admin.delete.category', ['id'=>$row->id])}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <a href="{{ route('admin.edit.category', ['id'=>$row->id]) }}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                             </td>
                         </tr>
                     @endforeach
