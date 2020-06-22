@@ -57,19 +57,28 @@ Product
                         <th>Descrition</th>
                         <th>Images</th>
                         <th>Price</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                     @foreach ($data as $row)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->name }}</td>
-                            <td>{{ $row->category }}</td>
-                            <td>{{ $row->description }}</td>
-                            <td>{{ $row->images }}</td>
-                            <td>{{ $row->price }}</td>
+                            <td>{{ $row->category_id }}</td>
                             <td>
-                                <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                <a href="{{ route('admin.edit.product') }}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                              {{ str_limit($row->description , $limit = 90, $end = '...') }} 
+                              
+                            </td>
+                            <td>
+                              {{$row->imagegit}}
+                            </td>
+                            <td>{{ $row->price }}</td>
+                            <td>{{ $row->status }}</td>
+                            <td>
+                                <a href="" class="btn btn-primary"><i class="fa fa-trash"></i></a>
+                                <a href="{{ route('admin.edit.product', ['id'=>$row->id]) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <a href="{{ Route('admin.delete.product', ['id'=>$row->id])}}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                
                             </td>
                         </tr>
                     @endforeach

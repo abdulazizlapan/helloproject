@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -25,7 +26,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('pages.product.add');
+        $dataCategory = Category::get();
+        // dd($dataCategory);
+        return view('pages.product.add', compact('dataCategory'));
     }
 
     /**
@@ -36,17 +39,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file('image_product');
+        // dd($request->all());
+        $file = $request->file('image');
         $extension = $file->getClientOriginalExtension(); // getting image extension
         $filename = time().'.'.$extension;
         $file->move('assets/images/product/', $filename);
 
         product::Create([
-            'name' => $request->product_name,
-            // 'category_id' => $request->category,
+            'name' => $request->name_product,
+            'category_id' => $request->category_id,
             'description' => $request->description,
             'image' => $filename,
             'price' => $request->price,
+            'status' => $request->status
+
         ]);
         return redirect(route('admin.index.product'));
     }
@@ -99,6 +105,6 @@ class ProductController extends Controller
             unlink($image_path);
         }
         $data->delete();
-        return redirect(route('admin.index.category'));
+        return redirect(route('admin.index.product'));
     }
 }
