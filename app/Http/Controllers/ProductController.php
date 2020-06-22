@@ -44,7 +44,7 @@ class ProductController extends Controller
         product::Create([
             'name' => $request->product_name,
             // 'category_id' => $request->category,
-            // 'description' => $request->description,
+            'description' => $request->description,
             'image' => $filename,
             'price' => $request->price,
         ]);
@@ -70,7 +70,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        
     }
 
     /**
@@ -93,6 +93,12 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $data = Product::find($id);
+        $image_path = $image_path = public_path().'/assets/images/product/'.$data->image;
+        if (File::exists($image_path)) {
+            unlink($image_path);
+        }
+        $data->delete();
+        return redirect(route('admin.index.category'));
     }
 }
