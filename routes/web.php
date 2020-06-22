@@ -27,7 +27,7 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
     Route::get('category/edit/{id}', 'CategoryController@edit')->name('edit.category');
     Route::get('category/delete/{id}', 'CategoryController@destroy')->name('delete.category');
     Route::post('category/store', 'CategoryController@store')->name('store.category');
-    Route::get('category/edit', 'CategoryController@edit')->name('edit.category');
+    Route::post('category/update', 'CategoryController@update')->name('update.category');
 
     // product
     Route::get('product/index', 'ProductController@index')->name('index.product');
