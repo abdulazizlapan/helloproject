@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use Illuminate\Support\Facades\File;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -39,17 +40,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        $fotoNames = [];
         $file = $request->file('image');
-        $extension = $file->getClientOriginalExtension(); // getting image extension
-        $filename = time().'.'.$extension;
-        $file->move('assets/images/product/', $filename);
-
+        foreach ($file as $files) {
+            $fotoNames[] = $files->getClientOriginalName();
+            $files->move('assets/images/product/', $files->getClientOriginalName());
+        }
         product::Create([
             'name' => $request->name_product,
             'category_id' => $request->category_id,
             'description' => $request->description,
-            'image' => $filename,
+            'image' => implode(',', $fotoNames),
             'price' => $request->price,
             'status' => $request->status
 
@@ -74,9 +75,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        
+        $data = Product::find($id);
+        $dataCategory = Category::get();
+       return view('pages.product.edit', compact('data','dataCategory'));
     }
 
     /**
@@ -88,7 +91,24 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $data =  Product::find($request->product_id);
+
+        if (isset($request->img_product)) {
+            $fotoNames = [];
+            $file = $request->file('img_product');
+            foreach ($file as $files) {
+                $fotoNames[] = $files->getClientOriginalName();
+                $files->move('assets/images/product/', $files->getClientOriginalName());
+            }
+            $data->image = implode(',', $fotoNames);
+        }
+        $data->name = $request->product_name;
+        $data->category_id = $request->category_id;
+        $data->description = $request->description;
+        $data->price = $request->price;
+        $data->status = $request->status;
+        $data->save();
+        return redirect(route('admin.index.product'));
     }
 
     /**
@@ -97,7 +117,7 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
         $data = Product::find($id);
         $image_path = $image_path = public_path().'/assets/images/product/'.$data->image;

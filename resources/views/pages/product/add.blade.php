@@ -52,7 +52,7 @@ Add Product
                    @foreach ($dataCategory as $rowCat)
                   <option value="{{$rowCat->id}}">{{ $rowCat->name }}</option>
                    @endforeach
-        
+
                   </select>
                 </div>
               </div>
@@ -66,7 +66,7 @@ Add Product
                 <div class="col-sm-12 col-md-7">
                   <div id="image-preview" class="image-preview">
                     <label for="image-upload" id="image-label">Choose File</label>
-                    <input type="file" name="image" id="image-upload" />
+                    <input type="file" name="image[]" id="image-upload" multiple />
                   </div>
                 </div>
               </div>

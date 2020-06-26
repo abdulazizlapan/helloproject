@@ -54,7 +54,7 @@ Product
                         <th>No</th>
                         <th>Name Product</th>
                         <th>Category</th>
-                        <th>Descrition</th>
+                        <th>Description</th>
                         <th>Images</th>
                         <th>Price</th>
                         <th>Status</th>
@@ -66,19 +66,25 @@ Product
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->category_id }}</td>
                             <td>
-                              {{ str_limit($row->description , $limit = 90, $end = '...') }} 
-                              
+                              {{ str_limit($row->description , $limit = 90, $end = '...') }}
+
                             </td>
                             <td>
-                              {{$row->imagegit}}
+                                <div class="gallery">
+                                    @php
+                                        $dataImg = explode(',',$row->image);
+                                    @endphp
+                                    @foreach ($dataImg as $img)
+                                        <div class="gallery-item" data-image="{{ asset('assets/images/product/'.$img)}}" title="{{ $img }}" href="{{ asset('assets/images/product/'.$img )}}"></div>
+                                    @endforeach
+                                </div>
                             </td>
                             <td>{{ $row->price }}</td>
                             <td>{{ $row->status }}</td>
                             <td>
-                                <a href="" class="btn btn-primary"><i class="fa fa-trash"></i></a>
-                                <a href="{{ route('admin.edit.product', ['id'=>$row->id]) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                <a href="{{ Route('admin.delete.product', ['id'=>$row->id])}}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                                
+                                <a href="{{ Route('admin.delete.product', ['id'=>$row->id])}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <a href="{{ Route('admin.edit.product', ['id'=>$row->id]) }}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+
                             </td>
                         </tr>
                     @endforeach

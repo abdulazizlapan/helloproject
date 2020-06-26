@@ -33,11 +33,11 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
     Route::get('product/index', 'ProductController@index')->name('index.product');
     Route::Post('product/store', 'ProductController@store')->name('store.product');
     Route::get('product/add', 'ProductController@create')->name('add.product');
-    Route::get('product/edit/{id}', 'ProductController@create')->name('edit.product');
     Route::get('product/view/{id}', 'ProductController@show')->name('view.product');
+    Route::get('product/edit/{id}', 'ProductController@edit')->name('edit.product');
     Route::Post('product/update', 'ProductController@update')->name('update.product');
     Route::get('product/delete/{id}', 'ProductController@destroy')->name('delete.product');
-    
+
 });
 
 Route::middleware('auth')->get('logout', function() {
