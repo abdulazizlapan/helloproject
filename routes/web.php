@@ -1,10 +1,12 @@
 <?php
 
 Route::get('/', 'FrontEndController@index')->name('index.home');
+Route::get('/indexproduct', 'FrontEndController@product')->name('index.product');
+Route::get('/indexproductdetail', 'FrontEndController@prodetail')->name('index.product');
 
-Route::get('/product', function() {
-    return view ('product');
-});
+// Route::get('/product', function() {
+//     return view ('product');
+// });
 
 
 Route::get('home', function() {
