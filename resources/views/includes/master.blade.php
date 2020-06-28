@@ -58,29 +58,7 @@
         <div class="ps-panel__header">
             <h3>Shopping Cart</h3>
         </div>
-        <div class="navigation__content">
-            <div class="ps-cart--mobile">
-                <div class="ps-cart__content">
-                    <div class="ps-product--cart-mobile">
-                        <div class="ps-product__thumbnail">
-                            <a href="#">
-                                <img src="{{ asset('assets/data/img/products/clothing/7.jpg')}}" alt="">
-                             </a>
-                        </div>
-                        <div class="ps-product__content"><a class="ps-product__remove" href="#">
-                            <i class="icon-cross"></i></a>
-                            <a href="product-default.html">MVMTH Classical Leather Watch In Black</a>
-                            <p><strong>Sold by:</strong> YOUNG SHOP</p><small>1 x $59.99</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="ps-cart__footer">
-                    <h3>Sub Total:<strong>$59.99</strong></h3>
-                    <figure><a class="ps-btn" href="shopping-cart.html">View Cart</a>
-                        <a class="ps-btn" href="checkout.html">Checkout</a></figure>
-                </div>
-            </div>
-        </div>
+
     </div>
     <div class="ps-panel--sidebar" id="navigation-mobile">
         <div class="ps-panel__header">
@@ -105,7 +83,7 @@
             <span> Search</span></a>
             <!-- <a class="navigation__item ps-toggle--sidebar" href="#cart-mobile"><i class="icon-bag2"></i>
                 <span> Cart</span></a> -->
-            <a class="navigation__item ps-toggle--sidebar" href="#"><i class="fa fa-whatsapp"></i>
+            <a class="navigation__item ps-toggle--sidebar" href="wa.me/6281389778600"><i class="fa fa-whatsapp"></i>
                 <span> Whatsapp</span></a>
         </div>
 
@@ -186,11 +164,11 @@
             <div class="ps-footer__copyright">
                 <p>© 2020 Hello Wallpaper. All Rights Reserved</p>
                 <p><span>We Using Safe Payment For:</span>
-                    <!-- <a href="#"><img src="{{ asset('assets/data/img/payment-method/1.jpg')}}" alt=""></a>
+
                         <a href="#"><img src="{{ asset('assets/data/img/payment-method/2.jpg')}}" alt=""></a>
                         <a href="#"><img src="{{ asset('assets/data/img/payment-method/3.jpg')}}" alt=""></a>
                         <a href="#"><img src="{{ asset('assets/data/img/payment-method/4.jpg')}}" alt=""></a>
-                        <a href="#"><img src="{{ asset('assets/data/img/payment-method/5.jpg')}}" alt=""></a> -->
+                        <a href="#"><img src="{{ asset('assets/data/img/payment-method/5.jpg')}}" alt=""></a>
                     </p>
             </div>
         </div>
